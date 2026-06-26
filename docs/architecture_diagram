@@ -1,0 +1,53 @@
+// EduShield AI Multi-Agent System
+digraph EduShield_Architecture {
+	dpi=300 rankdir=TB size="10,12"
+	node [fontname="Helvetica,Arial,sans-serif" fontsize=11 shape=box style="filled,rounded"]
+	edge [fontname="Helvetica,Arial,sans-serif" fontsize=9]
+	input [label="📥 STUDENT INPUTS
+- Name, Dept, CGPA
+- Attendance, Skills, Goal" color="#455A64" fillcolor="#ECEFF1" penwidth=2]
+	report [label="🛡️ FINAL SUCCESS REPORT
+- Success Score
+- Risk Assessments
+- 30-Day Intervention Plan" color="#455A64" fillcolor="#ECEFF1" penwidth=2 shape=doubleoctagon]
+	mcp_server [label="🔌 Stdio MCP Database Server
+(FastMCP Host)" color="#3F51B5" fillcolor="#E8EAF6" penwidth=2 shape=cylinder]
+	mcp_db [label="get_student_db_record()
+search_scholarships_and_internships()
+fetch_career_roadmap_templates()" color="#3F51B5" fillcolor="#E8EAF6" style="filled,dashed,rounded"]
+	agent1 [label="1. Student Profile Agent
+[ADK Agent]
+- Resolves inputs
+- Builds unified profile" color="#00796B" fillcolor="#E0F2F1" penwidth=1.5]
+	agent2 [label="2. Risk Assessment Agent
+[ADK Agent]
+- Academic & Dropout Risk
+- Skill Gap Identification" color="#00796B" fillcolor="#E0F2F1" penwidth=1.5]
+	agent3 [label="3. Scholarship & Opportunity Agent
+[ADK Agent]
+- Scholarship matches
+- Certification discovery" color="#00796B" fillcolor="#E0F2F1" penwidth=1.5]
+	agent4 [label="4. Learning Coach Agent
+[ADK Agent]
+- 30-Day customized study plan
+- Handpicked milestones" color="#00796B" fillcolor="#E0F2F1" penwidth=1.5]
+	agent5 [label="5. Career Navigator Agent
+[ADK Agent]
+- Goal roadmap creation
+- Portfolio projects & prep" color="#00796B" fillcolor="#E0F2F1" penwidth=1.5]
+	agent6 [label="6. Intervention Coordinator Agent
+[ADK Agent]
+- Success score formulation
+- Final report orchestration" color="#00796B" fillcolor="#E0F2F1" penwidth=1.5]
+	input -> agent1 [label="START Workflow" color="#1E88E5" penwidth=2]
+	agent1 -> agent2 [label="Profile details" color="#1E88E5" penwidth=2]
+	agent2 -> agent3 [label="Risk & Gaps" color="#1E88E5" penwidth=2]
+	agent3 -> agent4 [label="Opportunity pool" color="#1E88E5" penwidth=2]
+	agent4 -> agent5 [label="Study milestones" color="#1E88E5" penwidth=2]
+	agent5 -> agent6 [label="Career roadmaps" color="#1E88E5" penwidth=2]
+	agent6 -> report [label="END Workflow" color="#2E7D32" penwidth=2]
+	mcp_server -> mcp_db [color="#3F51B5" dir=none style=dashed]
+	agent1 -> mcp_db [label="Query student DB" color="#5E35B1" style=dotted]
+	agent3 -> mcp_db [label="Query scholarships & opportunities" color="#5E35B1" style=dotted]
+	agent5 -> mcp_db [label="Fetch roadmap data" color="#5E35B1" style=dotted]
+}
