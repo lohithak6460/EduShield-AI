@@ -83,6 +83,13 @@ Start the Streamlit dashboard:
 streamlit run app.py
 ```
 
+### 4. Generating the System Architecture Diagram
+You can generate or update the system's architecture diagram locally:
+```bash
+python generate_diagram.py
+```
+*(Note: If the Graphviz executable is installed on your system path, this renders `docs/architecture_diagram.png`. Otherwise, it outputs the raw node definitions to `docs/architecture_diagram.dot`.)*
+
 ---
 
 ## ⏱️ 5-Minute Demo Scenario
@@ -106,7 +113,7 @@ We have preloaded a sample student scenario to test the platform out-of-the-box 
    - **Scholarships & Opportunities:** Matching awards (Google Generation and Adobe Research scholarships) and open placements (NVIDIA Deep Learning Intern).
    - **Career Guidance & Skills:** Skill gaps chart (missing Git, MLOps, Deep Learning) and certification path.
    - **Intervention Action Plan:** 30-day coordinated plan with checkboxes.
-5. Optionally, input your `GEMINI_API_KEY` in the sidebar and select **Live ADK Mode** to run the live Google ADK reasoning chain using `gemini-2.5-flash`.
+5. Optionally, input your `GEMINI_API_KEY` in the sidebar and select **Live ADK Mode** to run the live Google ADK reasoning chain using `gemini-3.1-flash-lite`.
 
 ---
 
